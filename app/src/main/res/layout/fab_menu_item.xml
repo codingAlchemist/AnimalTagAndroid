@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data></data>
+
+    <RelativeLayout
+        android:layout_width="@dimen/fabSizeSmall"
+        android:layout_height="@dimen/fabSizeSmall"
+        android:background="@drawable/fab_menu_item"
+        android:clickable="true"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/fabMenuIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+</layout>

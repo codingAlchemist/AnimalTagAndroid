@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AnimalIDAppAndroidNew</string>
+    <string name="Birds">Birds</string>
+    <string name="Reptiles">Reptiles</string>
+    <string name="Insects">Insects</string>
+    <string name="Plants">Plants</string>
+    <string name="animalList">Animals</string>
+    <string name="CommonName">Common Name</string>
+    <string name="ScientificName">Scientific Name</string>
+    <string name="NaturalHistory">Natural History</string>
+    <string name="appTitle">Animal Tag</string>
+    <string name="Favorite">Favorite</string>
+    <string name="Favorites">Favorites</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="dialogTag">DialogTag</string>
+    <string name="no_address_found">No Address Found</string>
+    <string name="camera_denied">Sorry, camera permission denied</string>
+    <string name="take_pic">Take Picture</string>
+</resources>

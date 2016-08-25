@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="Animal"
+            type="jasondebottis.animaltagandroid.Models.AnimalModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:id="@+id/animalNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/animalImageView"
+                        android:layout_width="@dimen/thumbnailSize"
+                        android:layout_height="@dimen/thumbnailSize"
+                        android:background="@color/dark_gray" />
+
+                    <LinearLayout
+                        android:id="@+id/commonNameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/animalImageView"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:paddingStart="10dp"
+                            android:text="@string/CommonName" />
+
+                        <TextView
+                            android:id="@+id/commonNameTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:text="@{Animal.mCommon}"
+                            tools:text="Common Name" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/latingNameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/commonNameLayout"
+                        android:layout_toEndOf="@id/animalImageView"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:paddingStart="10dp"
+                            android:text="@string/ScientificName" />
+
+                        <TextView
+                            android:id="@+id/latinNameTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:text="@{Animal.mLatin}"
+                            tools:text="Scientific Name" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <com.veinhorn.scrollgalleryview.ScrollGalleryView
+                    android:id="@+id/animalImageGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_below="@id/animalNameLayout"
+                    android:background="#000" />
+
+                <TextView
+                    android:id="@+id/naturalHistoryTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/animalImageGallery"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/NaturalHistory"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/naturalHistoryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/naturalHistoryTitle"
+                    android:gravity="center"
+                    android:text="@{Animal.mLongDesc}"
+                    tools:text="This is the story of a man named Brady" />
+
+                <Button
+                    android:id="@+id/addToFavoritesButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/naturalHistoryText"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/Favorite" />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
+</layout>

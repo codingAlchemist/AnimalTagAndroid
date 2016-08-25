@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@android:color/white" />
+
+
+        <RelativeLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolBar">
+
+            <View
+                android:id="@+id/putAwayAllRegion"
+                android:layout_width="60dp"
+                android:layout_height="110dp"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/cardFolderImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/animal_manilla_cover" />
+
+            <ImageView
+                android:id="@+id/cardFolderCoverImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/folder_outer" />
+
+            <jasondebottis.animaltagandroid.Views.TabViews.BirdTab
+                android:id="@+id/birdTab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tabTopMargin"
+                android:visibility="visible">
+
+                <jasondebottis.animaltagandroid.BaseClasses.BaseRecyclerView
+                    android:id="@+id/birdTabRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/animalRecyclerViewHeight"
+                    android:layout_marginStart="40dp"
+                    android:background="@android:color/white" />
+            </jasondebottis.animaltagandroid.Views.TabViews.BirdTab>
+
+            <jasondebottis.animaltagandroid.Views.TabViews.ReptileTab
+                android:id="@+id/reptileTab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tabTopMargin"
+                android:visibility="visible">
+
+                <jasondebottis.animaltagandroid.BaseClasses.BaseRecyclerView
+                    android:id="@+id/reptileTabRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/animalRecyclerViewHeight"
+                    android:layout_marginStart="40dp"
+                    android:background="@android:color/white" />
+            </jasondebottis.animaltagandroid.Views.TabViews.ReptileTab>
+
+            <jasondebottis.animaltagandroid.Views.TabViews.InsectTab
+                android:id="@+id/insectTab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tabTopMargin"
+                android:visibility="visible">
+
+                <jasondebottis.animaltagandroid.BaseClasses.BaseRecyclerView
+                    android:id="@+id/insectTabRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/animalRecyclerViewHeight"
+                    android:layout_marginStart="40dp"
+                    android:background="@android:color/white" />
+            </jasondebottis.animaltagandroid.Views.TabViews.InsectTab>
+
+
+            <View
+                android:id="@+id/regionOne"
+                android:layout_width="@dimen/tabTitleWidth"
+                android:layout_height="@dimen/tabTitleHeight"
+                android:layout_marginTop="@dimen/tabTopMargin"
+                android:clickable="true" />
+
+            <View
+                android:id="@+id/regionTwo"
+                android:layout_width="@dimen/tabTitleWidth"
+                android:layout_height="@dimen/tabTitleHeight"
+                android:layout_below="@id/regionOne"
+                android:clickable="true" />
+
+            <View
+                android:id="@+id/regionThree"
+                android:layout_width="@dimen/tabTitleWidth"
+                android:layout_height="@dimen/tabTitleHeight"
+                android:layout_below="@id/regionTwo"
+                android:layout_marginTop="10dp"
+                android:clickable="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</layout>

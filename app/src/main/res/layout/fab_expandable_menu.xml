@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <jasondebottis.animaltagandroid.Views.CustomViews.FABMenuItem
+            android:id="@+id/fabMenuItem1"
+            style="@style/FabMenuItemStyle"
+            app:menuItemIcon="@drawable/ic_action_list"
+            app:menuItemTag="item1" />
+
+        <jasondebottis.animaltagandroid.Views.CustomViews.FABMenuItem
+            android:id="@+id/fabMenuItem2"
+            style="@style/FabMenuItemStyle"
+            app:menuItemIcon="@drawable/ic_star_rate"
+            app:menuItemTag="item2" />
+
+        <jasondebottis.animaltagandroid.Views.CustomViews.FABMenuItem
+            android:id="@+id/fabMenuItem3"
+            style="@style/FabMenuItemStyle"
+            app:menuItemIcon="@drawable/ic_action_location"
+            app:menuItemTag="item3" />
+
+
+        <ImageButton
+            android:id="@+id/fabMenuController"
+            android:layout_width="@dimen/fabSizeNormal"
+            android:layout_height="@dimen/fabSizeNormal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/fab_menu_item_background"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:src="@drawable/ic_action_add" />
+    </RelativeLayout>
+</layout>

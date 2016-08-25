@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="birdYellow">#FAF60C</color>
+    <color name="reptileGreen">#0EE882</color>
+    <color name="InsectRed">#E80E41</color>
+    <color name="PlantBrown">#F27F0C</color>
+    <color name="plantBrown">#A3551B</color>
+    <color name="dark_gray">#AFAFAF</color>
+    <color name="darker_gray">#5F5F5F</color>
+</resources>

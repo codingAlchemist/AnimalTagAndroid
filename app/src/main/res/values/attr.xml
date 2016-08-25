@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TabStyle">
+        <attr name="tabColor" format="integer" />
+        <attr name="tabTitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="FABMenu">
+        <attr name="menuIcon" format="reference" />
+        <attr name="menuColor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FABMenuItem">
+        <attr name="menuItemIcon" format="reference" />
+        <attr name="menuItemTag" format="string" />
+        <attr name="menuItemColor" format="reference" />
+        <attr name="menuItemSize" format="integer">
+            <flag name="normal" value="70" />
+            <flag name="small" value="40" />
+        </attr>
+    </declare-styleable>
+</resources>
