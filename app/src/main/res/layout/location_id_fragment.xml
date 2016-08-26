@@ -9,6 +9,7 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/resultImageView"
             android:layout_width="400dp"
             android:layout_height="400dp"
             android:layout_centerInParent="true">
@@ -18,5 +19,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </FrameLayout>
+
+        <com.veinhorn.scrollgalleryview.ScrollGalleryView
+            android:id="@+id/animalImageGallery"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_below="@id/resultImageView"
+            android:background="#000"/>
+
     </RelativeLayout>
 </layout>

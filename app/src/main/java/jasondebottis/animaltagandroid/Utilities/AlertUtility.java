@@ -16,12 +16,16 @@ import jasondebottis.animaltagandroid.databinding.DialogFragmentBinding;
 public class AlertUtility extends DialogFragment {
     private DialogFragmentBinding mBinding;
     public static final String DIALOG_TAG = "DialogTag";
-    private String mMessage;
+    private static String mMessage;
 
     public static AlertUtility NewInstance(String inMessage) {
         AlertUtility alertUtility = new AlertUtility();
         alertUtility.mMessage = inMessage;
         return alertUtility;
+    }
+
+    public static void ShowMessage(String inMessage) {
+        mMessage = inMessage;
     }
 
     public AlertUtility() {

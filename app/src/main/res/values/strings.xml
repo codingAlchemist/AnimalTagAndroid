@@ -17,4 +17,7 @@
     <string name="no_address_found">No Address Found</string>
     <string name="camera_denied">Sorry, camera permission denied</string>
     <string name="take_pic">Take Picture</string>
+    <string name="Reptile">Reptile</string>
+    <string name="Bird">Bird</string>
+    <string name="Insect">Insect</string>
 </resources>

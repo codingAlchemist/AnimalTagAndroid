@@ -29,10 +29,14 @@ import java.util.Locale;
 
 import jasondebottis.animaltagandroid.Constants;
 import jasondebottis.animaltagandroid.MainActivity;
+import jasondebottis.animaltagandroid.Models.AnimalModel;
 import jasondebottis.animaltagandroid.R;
 import jasondebottis.animaltagandroid.Services.FetchAddressIntentService;
 import jasondebottis.animaltagandroid.Utilities.AlertUtility;
 import jasondebottis.animaltagandroid.databinding.LocationIdFragmentBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
@@ -43,10 +47,23 @@ public class LocationIdFragment extends Fragment implements GoogleApiClient.Conn
     private AddressResultReciever mResultReceiver;
     private Handler mHandler;
     public static final String kPicArgs = "ResultPic";
+
     private final GoogleApiClient.OnConnectionFailedListener kOnConnectionFailedListener = new GoogleApiClient.OnConnectionFailedListener() {
         @Override
         public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
             AlertUtility.NewInstance(connectionResult.getErrorMessage());
+        }
+    };
+
+    private final Callback<List<AnimalModel>> mGetAnimalsInLocationCallback = new Callback<List<AnimalModel>>() {
+        @Override
+        public void onResponse(Call<List<AnimalModel>> call, Response<List<AnimalModel>> response) {
+
+        }
+
+        @Override
+        public void onFailure(Call<List<AnimalModel>> call, Throwable t) {
+
         }
     };
 
@@ -155,5 +172,6 @@ public class LocationIdFragment extends Fragment implements GoogleApiClient.Conn
             Log.i(TAG, "onReceiveResult: " + AddressOutput);
         }
     }
+
 
 }

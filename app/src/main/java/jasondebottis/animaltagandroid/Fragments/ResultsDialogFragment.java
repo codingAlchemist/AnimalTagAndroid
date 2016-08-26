@@ -21,11 +21,19 @@ import jasondebottis.animaltagandroid.databinding.ResultsDialogFragmentBinding;
 public class ResultsDialogFragment extends DialogFragment {
     private byte[] mBytes;
     private ResultsDialogFragmentBinding mBinding;
+    private OnDialogButtonClickedListener mOnDialogButtonClickedListener;
 
-    public static ResultsDialogFragment newInstance(byte[] inImageBytes) {
+    public void setOnDialogButtonClickedListener(OnDialogButtonClickedListener inOnDialogButtonClickedListener) {
+        mOnDialogButtonClickedListener = inOnDialogButtonClickedListener;
+    }
+
+    public static ResultsDialogFragment newInstance() {
         ResultsDialogFragment fragment = new ResultsDialogFragment();
-        fragment.mBytes = inImageBytes;
         return fragment;
+    }
+
+    public void setBytes(byte[] inBytes) {
+        mBytes = inBytes;
     }
 
     public ResultsDialogFragment() {
@@ -42,16 +50,28 @@ public class ResultsDialogFragment extends DialogFragment {
         builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface inDialogInterface, int inI) {
-                dismiss();
+                if (mOnDialogButtonClickedListener != null) {
+                    mOnDialogButtonClickedListener.CancelClicked();
+                }
+
             }
         });
         builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface inDialogInterface, int inI) {
-                dismiss();
+                if (mOnDialogButtonClickedListener != null) {
+                    mOnDialogButtonClickedListener.OkClicked();
+                }
+
             }
         });
         AlertDialog alertDialog = builder.create();
         return alertDialog;
+    }
+
+    public interface OnDialogButtonClickedListener {
+        void OkClicked();
+
+        void CancelClicked();
     }
 }

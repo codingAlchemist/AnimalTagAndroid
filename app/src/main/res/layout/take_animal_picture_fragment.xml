@@ -12,13 +12,13 @@
             android:id="@+id/textureViewContainer"
             android:layout_width="400dp"
             android:layout_height="400dp"
-            android:layout_centerInParent="true">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
 
-            <TextureView
-                android:id="@+id/cameraTextureView"
+            <SurfaceView
+                android:id="@+id/surfaceView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-
 
         </FrameLayout>
 
@@ -30,5 +30,35 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:text="@string/take_pic"/>
+
+        <RelativeLayout
+            android:id="@+id/animalFilterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/takePictureButton">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioReptie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Reptile"/>
+
+                <RadioButton
+                    android:id="@+id/radioBird"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Bird"/>
+
+                <RadioButton
+                    android:id="@+id/radioInsect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Insect"/>
+            </RadioGroup>
+        </RelativeLayout>
     </RelativeLayout>
 </layout>
