@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -84,8 +86,22 @@ public class LocationIdFragment extends Fragment implements GoogleApiClient.Conn
             byte[] bytes = args.getByteArray(kPicArgs);
             Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             mBinding.captureResultImageView.setImageBitmap(bitmap);
+            GetPrimaryColor();
         }
         return mBinding.getRoot();
+    }
+
+    private void GetPrimaryColor() {
+        Bitmap bitmap = ((BitmapDrawable) mBinding.captureResultImageView.getDrawable()).getBitmap();
+        for (int x = 0; x < bitmap.getWidth(); x++) {
+            for (int y = 0; y < bitmap.getHeight(); y++) {
+                int pixel = bitmap.getPixel(x, y);
+                int redval = Color.red(pixel);
+                int greenval = Color.green(pixel);
+                int blueval = Color.blue(pixel);
+                //Log.d(TAG, "GetPrimaryColor: (" + redval + ")-(" + greenval + ")-(" + blueval + ")");
+            }
+        }
     }
 
     @Override

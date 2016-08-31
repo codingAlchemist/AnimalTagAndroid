@@ -125,13 +125,13 @@ public class AnimalDetailFragment extends Fragment {
                     String alertMessage = String.format(Locale.ENGLISH, "%s is already in your favorites", mAnimalModel.mCommon);
                     AlertUtility alertUtility = AlertUtility.NewInstance(alertMessage);
                     alertUtility.show(MainActivity.GetFragmentManager(), AlertUtility.DIALOG_TAG);
-                } else {
-                    String alertMessage = String.format(Locale.ENGLISH, "%s Saved to favorites", mAnimalModel.mCommon);
-                    AlertUtility alertUtility = AlertUtility.NewInstance(alertMessage);
-                    alertUtility.show(MainActivity.GetFragmentManager(), AlertUtility.DIALOG_TAG);
-                    animal.save();
+                    return;
                 }
             }
+            String alertMessage = String.format(Locale.ENGLISH, "%s Saved to favorites", mAnimalModel.mCommon);
+            AlertUtility alertUtility = AlertUtility.NewInstance(alertMessage);
+            alertUtility.show(MainActivity.GetFragmentManager(), AlertUtility.DIALOG_TAG);
+            animal.save();
         }
     };
 }

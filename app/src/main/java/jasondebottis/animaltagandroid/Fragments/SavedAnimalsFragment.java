@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import jasondebottis.animaltagandroid.MainActivity;
 import jasondebottis.animaltagandroid.Models.AnimalModel;
 import jasondebottis.animaltagandroid.R;
 import jasondebottis.animaltagandroid.databinding.SavedAnimalsFragmentBinding;
+
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 
 public class SavedAnimalsFragment extends Fragment {
@@ -37,7 +40,7 @@ public class SavedAnimalsFragment extends Fragment {
         mBinding.toolBar.setNavigationIcon(R.drawable.ic_keyboard_backspace);
         mBinding.toolBar.setNavigationOnClickListener(kGoBack);
         mAnimals = getAllAnimals();
-
+        Log.d(TAG, "onCreateView: " + mAnimals.size());
         mBinding.savedAnimalsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mBinding.savedAnimalsRecyclerView.setAdapter(new SavedAnimalsAdapter());
         mBinding.savedAnimalsRecyclerView.GetAdapter().setDataItems(mAnimals);
