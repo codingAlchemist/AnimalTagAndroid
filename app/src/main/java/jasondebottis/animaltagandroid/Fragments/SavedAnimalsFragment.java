@@ -17,7 +17,7 @@ import java.util.List;
 
 import jasondebottis.animaltagandroid.Adapters.SavedAnimalsAdapter;
 import jasondebottis.animaltagandroid.MainActivity;
-import jasondebottis.animaltagandroid.Models.AnimalModel;
+import jasondebottis.animaltagandroid.Models.AnimalDataHolder;
 import jasondebottis.animaltagandroid.R;
 import jasondebottis.animaltagandroid.databinding.SavedAnimalsFragmentBinding;
 
@@ -26,7 +26,7 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class SavedAnimalsFragment extends Fragment {
     private SavedAnimalsFragmentBinding mBinding;
-    List<AnimalModel> mAnimals = new ArrayList<>();
+    List<AnimalDataHolder> mAnimals = new ArrayList<>();
 
     public SavedAnimalsFragment() {
     }
@@ -39,7 +39,11 @@ public class SavedAnimalsFragment extends Fragment {
         mBinding.toolBar.setTitleTextColor(getResources().getColor(android.R.color.white));
         mBinding.toolBar.setNavigationIcon(R.drawable.ic_keyboard_backspace);
         mBinding.toolBar.setNavigationOnClickListener(kGoBack);
-        mAnimals = getAllAnimals();
+        if (getAllAnimals() != null) {
+            mAnimals = getAllAnimals();
+        } else {
+            Log.d(TAG, "onCreateView: no saved animals");
+        }
         Log.d(TAG, "onCreateView: " + mAnimals.size());
         mBinding.savedAnimalsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mBinding.savedAnimalsRecyclerView.setAdapter(new SavedAnimalsAdapter());
@@ -47,8 +51,9 @@ public class SavedAnimalsFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-    private List<AnimalModel> getAllAnimals() {
-        return new Select().from(AnimalModel.class).execute();
+    private List<AnimalDataHolder> getAllAnimals() {
+
+        return new Select().from(AnimalDataHolder.class).execute();
     }
 
     private final View.OnClickListener kGoBack = new View.OnClickListener() {

@@ -4,7 +4,7 @@ import com.activeandroid.query.Select;
 
 import java.util.List;
 
-import jasondebottis.animaltagandroid.Models.AnimalModel;
+import jasondebottis.animaltagandroid.Models.AnimalDataHolder;
 
 /**
  * Created by jasondebottis on 8/5/16.
@@ -12,7 +12,7 @@ import jasondebottis.animaltagandroid.Models.AnimalModel;
 
 public class DBService {
 
-    public static List<AnimalModel> GetAllSavedAnimals() {
-        return new Select().from(AnimalModel.class).execute();
+    public static List<AnimalDataHolder> GetAllSavedAnimals() {
+        return new Select().from(AnimalDataHolder.class).execute();
     }
 }

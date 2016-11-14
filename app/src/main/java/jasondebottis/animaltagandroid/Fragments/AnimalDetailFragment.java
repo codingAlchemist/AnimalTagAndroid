@@ -19,6 +19,7 @@ import java.util.Locale;
 
 import jasondebottis.animaltagandroid.BuildConfig;
 import jasondebottis.animaltagandroid.MainActivity;
+import jasondebottis.animaltagandroid.Models.AnimalDataHolder;
 import jasondebottis.animaltagandroid.Models.AnimalModel;
 import jasondebottis.animaltagandroid.R;
 import jasondebottis.animaltagandroid.Services.DBService;
@@ -88,10 +89,10 @@ public class AnimalDetailFragment extends Fragment {
         }
 
         mBinding.animalImageGallery
-            .setThumbnailSize(100)
-            .setZoom(true)
-            .setFragmentManager(MainActivity.GetFragmentManager())
-            .addMedia(info);
+                .setThumbnailSize(100)
+                .setZoom(true)
+                .setFragmentManager(MainActivity.GetFragmentManager())
+                .addMedia(info);
         mBinding.invalidateAll();
         mBinding.addToFavoritesButton.setOnClickListener(kOnClickSaveFavorite);
     }
@@ -108,19 +109,20 @@ public class AnimalDetailFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Log.d(TAG, "onClick: " + mAnimalModel.mCommon);
-            List<AnimalModel> savedAnimals = DBService.GetAllSavedAnimals();
-            AnimalModel animal = new AnimalModel(
-                mAnimalModel.mCommon,
-                mAnimalModel.mLatin,
-                mAnimalModel.mType,
-                mAnimalModel.mShortDesc,
-                mAnimalModel.mLongDesc,
-                mAnimalModel.mImage1,
-                mAnimalModel.mImage2,
-                mAnimalModel.mImage3,
-                mAnimalModel.mHabitat,
-                mAnimalModel.mTag);
-            for (AnimalModel animalModel : savedAnimals) {
+            List<AnimalDataHolder> savedAnimals = DBService.GetAllSavedAnimals();
+            AnimalDataHolder animal = new AnimalDataHolder();
+            animal.mCommon = mAnimalModel.mCommon;
+            animal.mLatin = mAnimalModel.mLatin;
+            animal.mType = mAnimalModel.mType;
+            animal.mShortDesc = mAnimalModel.mShortDesc;
+            animal.mLongDesc = mAnimalModel.mLongDesc;
+            animal.mImage1 = mAnimalModel.mImage1;
+            animal.mImage2 = mAnimalModel.mImage2;
+            animal.mImage3 = mAnimalModel.mImage3;
+            animal.mHabitat = mAnimalModel.mHabitat;
+            animal.mTag = mAnimalModel.mTag;
+
+            for (AnimalDataHolder animalModel : savedAnimals) {
                 if (animalModel.mTag.contentEquals(mAnimalModel.mTag)) {
                     String alertMessage = String.format(Locale.ENGLISH, "%s is already in your favorites", mAnimalModel.mCommon);
                     AlertUtility alertUtility = AlertUtility.NewInstance(alertMessage);
